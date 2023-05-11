@@ -50,12 +50,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 date[0] = dp.getDayOfMonth()+"/"+dp.getMonth()+"/"+dp.getYear();
                 time[0] = tp.getHour()+" : "+tp.getMinute();
-                dateTime[0] = "Reserved "+date+", "+time;
-                name.getText().toString().endsWit
+                dateTime[0] = "Reserved "+date[0]+", "+time[0];
+
                 Context context = getApplicationContext();
                 Toast.makeText(context, dateTime[0], Toast.LENGTH_SHORT).show();
-                String info = "Name: "+String.valueOf(name)+"\nMobile: "+number+"\nGroup size: "+size+"\n"+Arrays.toString(smoking) +"\nReservation on: "+Arrays.toString(date) +"\nAt: "+ Arrays.toString(time);
-                allInfo.setText(name.getText());
+
+                String[] smoking = {""};
+                if(smoke.isChecked()){
+                    smoking[0] = "Sitting in smoking area";
+                }
+                else{
+                    smoking[0] = "Sitting in non-smoking area";
+                }
+                String phName=name.getText().toString();
+                String phNumber=number.getText().toString();
+                String phSize=size.getText().toString();
+                String info = "Name: "+phName+"\nMobile: "+phNumber+"\nGroup size: "+phSize+"\n"+smoking[0]+"\nReservation on: "+date[0]+"\nAt: "+time[0];
+                allInfo.setText(info);
             }
         });
 
@@ -65,15 +76,12 @@ public class MainActivity extends AppCompatActivity {
                 dp.updateDate(2023, 6, 1);
                 tp.setHour(19);
                 tp.setMinute(30);
+                name.setText("");
+                number.setText("");
+                size.setText("");
+                smoke.setChecked(false);
             }
         });
 
-        String[] smoking = {""};
-        if(smoke.isChecked()){
-            smoking[0] = "Sitting in smoking area";
-        }
-        else{
-            smoking[0] = "Sitting in non-smoking area";
-        }
     }
 }

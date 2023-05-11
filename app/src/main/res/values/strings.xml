@@ -6,7 +6,6 @@
     <string name="smoke">I\'m fine with a table in smoking area</string>
     <string name="book">Book</string>
     <string name="reset">Reset</string>
-    <string name="thisisfine">thisIsFine</string>
     <string name="cnfrmName">"Name: "</string>
     <string name="cnfrm_mobile_number">\nMobile Number</string>
 </resources>
